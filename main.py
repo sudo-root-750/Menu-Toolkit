@@ -1,37 +1,40 @@
 import os
 import typer
 from network.pingip import ping
+from network.portscan import portscan
 #<---Start_Menu--->
 def main():
     while True:
-        choice = input("Enter command: \n >> network menu \n > exit \n>>>").strip().lower()
+        choice = input("Enter Number Item: \n >> 1.network menu(2) \n > 00.exit \n>>>").strip().lower()
 
         match choice:
-            case "network menu":
+            case "1":
                 network_menu()
              
-            case "exit":
+            case "00":
                 typer.echo("bye")
                 break
 
             case _:
-                typer.echo("Invalid command. Try 'ping' or 'exit'.")
+                typer.echo("Invalid command. Try '0-9'.")
 #<---Network_Menu--->
 def network_menu():
     while True:
-        choice = input("Enter command: \n > ping \n > back \n > exit \n>>>").strip().lower()
+        choice = input("Enter command: \n > 1.ping \n > 2.portscan \n > 0.back \n > 00.exit \n>>>").strip().lower()
 
         match choice:
-            case "ping":
+            case "1":
                 ping()
-            case "back":
+            case "2":
+                portscan()
+            case "0":
                 return
-            case "exit":
+            case "00":
                 typer.echo("good bye")
                 break
 
             case _:
-                typer.echo("Invalid command. Try 'ping' or 'exit'.")
+                typer.echo("Invalid command. Try '0-9'.")
                 
 if __name__ == "__main__":
     main()
