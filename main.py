@@ -15,16 +15,21 @@ from system.system_info import system_info
 from system.process_viewer import process_viewer
 from system.open_connections import open_connections
 
+#<---Import_Security_Tools--->
+from security.crypto_tool import crypto_tool
+
 #<---Start_Menu--->
 def main():
     while True:
-        choice = input("Enter Number Item: \n >> 1.network menu(8) \n >> 2.system menu(3)\n > 00.exit \n>>>").strip().lower()
+        choice = input("Enter Number Item: \n >> 1.network menu(8) \n >> 2.system menu(3) \n >> 3.security_menu(1) \n > 00.exit \n>>>").strip().lower()
 
         match choice:
             case "1":
                 network_menu()
             case "2":
                 system_menu()
+            case "3":
+                security_menu()    
             case "00":
                 typer.echo("bye")
                 raise SystemExit
@@ -79,6 +84,21 @@ def system_menu():
                 typer.echo("bye")
                 raise SystemExit
             case _:
-                typer.echo("Invalid command. Try '1', '0' or '00'.")                
+                typer.echo("Invalid command. Try '1', '0' or '00'.") 
+#<---Security_Menu--->
+def security_menu():
+    while True:
+        choice = input("Security Menu: \n > 1.crypto_tool \n > 0.back \n > 00.exit \n>>>").strip().lower()
+
+        match choice:
+            case "1":
+                crypto_tool()
+            case "0":
+                return
+            case "00":
+                typer.echo("bye")
+                raise SystemExit
+            case _:
+                typer.echo("Invalid command. Try '1', '0' or '00'.")              
 if __name__ == "__main__":
     main()
