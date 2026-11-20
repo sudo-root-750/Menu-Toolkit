@@ -14,14 +14,18 @@ from network.ping_sweep import ping_sweep
 from system.system_info import system_info
 from system.process_viewer import process_viewer
 from system.open_connections import open_connections
+from system.disk_usage import disk_usage
 
 #<---Import_Security_Tools--->
 from security.crypto_tool import crypto_tool
+from security.hash_tool import hash_tool
+from security.password_tool import password_tool
+from security.security_audit import security_audit
 
 #<---Start_Menu--->
 def main():
     while True:
-        choice = input("Enter Number Item: \n >> 1.network menu(8) \n >> 2.system menu(3) \n >> 3.security_menu(1) \n > 00.exit \n>>>").strip().lower()
+        choice = input("Enter Number Item: \n >> 1.network menu(8) \n >> 2.system menu(4) \n >> 3.security menu(4) \n > 00.exit \n>>>").strip().lower()
 
         match choice:
             case "1":
@@ -69,7 +73,7 @@ def network_menu():
 #<---System_Menu--->
 def system_menu():
     while True:
-        choice = input("System Menu: \n > 1.system info \n 2.process viewer \n 3.open connections\n > 0.back \n > 00.exit \n>>>").strip().lower()
+        choice = input("System Menu: \n > 1.system info \n > 2.process viewer \n > 3.open connections \n > 4.disk_usage \n > 0.back \n > 00.exit \n>>>").strip().lower()
 
         match choice:
             case "1":
@@ -77,7 +81,9 @@ def system_menu():
             case "2":
                 process_viewer()
             case "3":
-                open_connections()        
+                open_connections()
+            case "4":
+                disk_usage()        
             case "0":
                 return
             case "00":
@@ -88,11 +94,17 @@ def system_menu():
 #<---Security_Menu--->
 def security_menu():
     while True:
-        choice = input("Security Menu: \n > 1.crypto_tool \n > 0.back \n > 00.exit \n>>>").strip().lower()
+        choice = input("Security Menu: \n > 1.crypto_tool \n > 2.hash_tool \n > 3.password_tool \n > 4.security_audit \n > 0.back \n > 00.exit \n >>>").strip().lower()
 
         match choice:
             case "1":
                 crypto_tool()
+            case "2":
+                hash_tool() 
+            case "3":
+                password_tool()
+            case "4":
+                security_audit()       
             case "0":
                 return
             case "00":
