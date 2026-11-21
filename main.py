@@ -18,7 +18,8 @@ from network.ip_blacklist import ip_blacklist
 from network.site_monitor import site_monitor
 from network.port_forward_check import port_forward_check
 from network.local_info import local_info
-
+#from network.common import common
+#from network.dns_client import dns_cilent
 #<---Import_System_Tools--->
 from system.system_info import system_info
 from system.process_viewer import process_viewer
