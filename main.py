@@ -19,6 +19,7 @@ from network.site_monitor import site_monitor
 from network.port_forward_check import port_forward_check
 from network.local_info import local_info
 from network.domain_expiry import domain_expiry
+from network.dns_full import dns_full
 #from network.common import common
 #from network.dns_client import dns_cilent
 #<---Import_System_Tools--->
@@ -36,7 +37,7 @@ from security.security_audit import security_audit
 #<---Start_Menu--->
 def main():
     while True:
-        choice = input("Enter Number Item: \n >> 1.network menu(18) \n >> 2.system menu(4) \n >> 3.security menu(4) \n > 00.exit \n>>>").strip().lower()
+        choice = input("Enter Number Item: \n >> 1.network menu(19) \n >> 2.system menu(4) \n >> 3.security menu(4) \n > 00.exit \n>>>").strip().lower()
 
         match choice:
             case "1":
@@ -54,7 +55,7 @@ def main():
 #<---Network_Menu--->
 def network_menu():
     while True:
-        choice = input("Enter command: \n > 1.ping \n > 2.portscan \n > 3.whois \n > 4.http_headers \n > 5.ssl_checker \n > 6.dns_lookup \n > 7.speedtest \n > 8.ping_sweep  \n > 9.wifi_info \n > 10.packet_sniffer \n > 11.tcp_check \n > 12.network_monitor \n > 13.http_server \n > 14.ip_blacklist \n > 15.site_monitor \n > 16.port_forward_check \n > 17.local_info \n > 18.domain_expiry \n > 0.back \n > 00.exit \n>>>").strip().lower()
+        choice = input("Enter command: \n > 1.ping \n > 2.portscan \n > 3.whois \n > 4.http_headers \n > 5.ssl_checker \n > 6.dns_lookup \n > 7.speedtest \n > 8.ping_sweep  \n > 9.wifi_info \n > 10.packet_sniffer \n > 11.tcp_check \n > 12.network_monitor \n > 13.http_server \n > 14.ip_blacklist \n > 15.site_monitor \n > 16.port_forward_check \n > 17.local_info \n > 18.domain_expiry \n > 19.dns_full \n > 0.back \n > 00.exit \n>>>").strip().lower()
 
         match choice:
             case "1":
@@ -92,7 +93,9 @@ def network_menu():
             case "17":
                 local_info()                   
             case "18":
-                domain_expiry()                              
+                domain_expiry() 
+            case "19":
+                dns_full()                             
             case "0":
                 return
             case "00":
